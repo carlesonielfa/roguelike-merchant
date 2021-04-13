@@ -1,0 +1,226 @@
+{
+"goods":
+	[
+
+		{
+		  "name": "salt",
+		  "icon": "🧂",
+		  "rarity": 0.1
+		},
+		{
+		  "name": "egg",
+		  "icon": "🥚",
+		  "rarity": 0.12
+		},
+		{
+		  "name": "bread",
+		  "icon": "🍞",
+		  "rarity": 0.1
+		},
+		{
+		  "name": "cheese",
+		  "icon": "🧀",
+		  "rarity": 0.23
+		},
+		{
+		  "name": "oyster",
+		  "icon": "🦪",
+		  "rarity": 0.5
+		},
+		{
+		  "name": "meat",
+		  "icon": "🍖",
+		  "rarity": 0.3
+		},
+		{
+		  "name": "shrimp",
+		  "icon": "🍤",
+		  "rarity": 0.4
+		},
+		{
+		  "name": "cookie",
+		  "icon": "🍪",
+		  "rarity": 0.65
+		},
+		{
+		  "name": "chocolate",
+		  "icon": "🍫",
+		  "rarity": 0.45
+		},
+		{
+		  "name": "milk",
+		  "icon": "🥛",
+		  "rarity": 0.2
+		},
+		{
+		  "name": "tea",
+		  "icon": "🍵",
+		  "rarity": 0.3
+		},
+		{
+		  "name": "wine",
+		  "icon": "🍷",
+		  "rarity": 0.17
+		},
+		{
+		  "name": "beer",
+		  "icon": "🍺",
+		  "rarity": 0.15
+		},
+		{
+		  "name": "kiwi",
+		  "icon": "🥝",
+		  "rarity": 0.23
+		},
+		{
+		  "name": "grapes",
+		  "icon": "🍇",
+		  "rarity": 0.17
+		},
+		{
+		  "name": "coconut",
+		  "icon": "🥥",
+		  "rarity": 0.18
+		},
+		{
+		  "name": "watermelon",
+		  "icon": "🍉",
+		  "rarity": 0.16
+		},
+		{
+		  "name": "orange",
+		  "icon": "🍊",
+		  "rarity": 0.2
+		},
+		{
+		  "name": "banana",
+		  "icon": "🍌",
+		  "rarity": 0.24
+		},
+		{
+		  "name": "strawberry",
+		  "icon": "🍓",
+		  "rarity": 0.15
+		},
+		{
+		  "name": "lemon",
+		  "icon": "🍋",
+		  "rarity": 0.2
+		},
+		{
+		  "name": "pineapple",
+		  "icon": "🍍",
+		  "rarity": 0.3
+		},
+		{
+		  "name": "apple",
+		  "icon": "🍎",
+		  "rarity": 0.1
+		},
+		{
+		  "name": "cherry",
+		  "icon": "🍒",
+		  "rarity": 0.25
+		},
+		{
+		  "name": "eggplant",
+		  "icon": "🍆",
+		  "rarity": 0.4
+		},
+		{
+		  "name": "mushroom",
+		  "icon": "🍄",
+		  "rarity": 0.6
+		},
+		{
+		  "name": "cucumber",
+		  "icon": "🥒",
+		  "rarity": 0.23
+		},
+		{
+		  "name": "onion",
+		  "icon": "🧅",
+		  "rarity": 0.1
+		},
+		{
+		  "name": "pear",
+		  "icon": "🍐",
+		  "rarity": 0.2
+		},
+		{
+		  "name": "rose",
+		  "icon": "🌹",
+		  "rarity": 0.6
+		},
+		{
+		  "name": "fish",
+		  "icon": "🐟",
+		  "rarity": 0.15
+		},
+		{
+		  "name": "clownfish",
+		  "icon": "🐠",
+		  "rarity": 0.5
+		},
+		{
+		  "name": "cow",
+		  "icon": "🐮",
+		  "rarity": 0.23
+		},
+		{
+		  "name": "pig",
+		  "icon": "🐷",
+		  "rarity": 0.2
+		},
+		{
+		  "name": "rat",
+		  "icon": "🐭",
+		  "rarity": 0.15
+		},
+		{
+		  "name": "rabbit",
+		  "icon": "🐰",
+		  "rarity": 0.2
+		},
+		{
+		  "name": "frog",
+		  "icon": "🐸",
+		  "rarity": 0.25
+		},
+		{
+		  "name": "horse",
+		  "icon": "🐴",
+		  "rarity": 0.5
+		},
+		{
+		  "name": "dragon",
+		  "icon": "🐲",
+		  "rarity": 0.95
+		},
+		{
+		  "name": "octopus",
+		  "icon": "🐙",
+		  "rarity": 0.7
+		},
+		{
+		  "name": "crab",
+		  "icon": "🦀",
+		  "rarity": 0.6
+		},
+		{
+		  "name": "chicken",
+		  "icon": "🐓",
+		  "rarity": 0.4
+		},
+		{
+		  "name": "paper",
+		  "icon": "📜",
+		  "rarity": 0.3
+		},
+		{
+		  "name": "gem",
+		  "icon": "💎",
+		  "rarity": 0.9
+		}
+	]
+}
