@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityAtoms.BaseAtoms;
 public class SlotMachineController : MonoBehaviour
 {
     const int nRows = 5;
@@ -14,6 +14,8 @@ public class SlotMachineController : MonoBehaviour
     float firstSlotY;
     float lastSlotY;
 
+    [SerializeField] Vector2 showPos;
+    [SerializeField] Vector2 hidePos;
     public void Start()
     {
         rowContents = new List<GameObject>[nRows];
@@ -33,6 +35,19 @@ public class SlotMachineController : MonoBehaviour
 
 
     }
+    public void OnStatChanged(IntPair state)
+    {
+        //If we are entering spin state show machine
+        if(state.Item1 == (int)GameState.SPIN)
+        {
+            ShowSlotMachine();
+        }
+        //If we are leaving spin state hide machine
+        if(state.Item2 == (int)GameState.SPIN)
+        {
+            HideSlotMachine();
+        }
+    }
     public void OnCityChanged(GameObject cityObject)
     {
         RectTransform rectTransformParent = rowContainers[0].GetComponent<RectTransform>();
@@ -50,6 +65,15 @@ public class SlotMachineController : MonoBehaviour
 
         inventory = new List<string>(city.CityGoods);
         UpdateRowContents();
+    }
+    public void ShowSlotMachine()
+    {
+
+        LeanTween.moveLocal(gameObject,showPos,2f).setEaseOutElastic().setOnComplete(()=>Spin());
+    }
+    public void HideSlotMachine()
+    {
+        LeanTween.moveLocal(gameObject, hidePos,2f).setEaseInElastic();
     }
     public void UpdateRowContents()
     {
@@ -76,7 +100,6 @@ public class SlotMachineController : MonoBehaviour
         lastSlotY = -0.5f * slotHeight - 0.5f * slotWidth;
 
         Debug.Log("Slot machine updated");
-        Spin();
     }
     void Spin()
     {
