@@ -6,7 +6,6 @@ using UnityAtoms.BaseAtoms;
 public class SetTextFromEvent : MonoBehaviour
 {
     string baseText;
-    int val;
     TextMeshProUGUI textComponent;
 
 
@@ -30,8 +29,9 @@ public class SetTextFromEvent : MonoBehaviour
     }
     public void UpdateTextWithTween(IntPair newValues)
     {
+
         LeanTween.value(gameObject, newValues.Item2, newValues.Item1, 1f)
-            .setOnUpdate((float val) => { UpdateText(((int)val).ToString()); });
+            .setOnUpdate((float val) => UpdateText(((int)val).ToString()));
     }
     public void UpdateText(IntPair newValues)
     {

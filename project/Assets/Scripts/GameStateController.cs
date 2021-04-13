@@ -7,16 +7,14 @@ public enum GameState { START, MOVEMENT, MOVING, SELL, SPIN, PAY, GAMEOVER, GETI
 public class GameStateController : MonoBehaviour
 {
     [SerializeField] IntVariable gameState;
-    public InputControls controls;
     // Start is called before the first frame update
     private void Awake()
     {
         Physics.autoSimulation = false;
-        controls = new InputControls();
     }
     private void OnEnable()
     {
-        controls.Enable();
+
     }
     void Start()
     {

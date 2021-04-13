@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 3286163911610860551, guid: eba67035eb274d34aa19f55f32c88e92, type: 3}
+    - target: {fileID: 4138347958637926161, guid: 47b7daaddb5f36c408f959402c0984eb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5270384737287728794, guid: 47b7daaddb5f36c408f959402c0984eb, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -69,7 +73,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5322721482120859821, guid: 47b7daaddb5f36c408f959402c0984eb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5322721482120859821, guid: 47b7daaddb5f36c408f959402c0984eb, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -115,5 +119,9 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 5322721483072316106, guid: 47b7daaddb5f36c408f959402c0984eb, type: 3}
+      propertyPath: _eventReference._event
+      value: 
+      objectReference: {fileID: 11400000, guid: 2d1f81ed8654e40469a4317b8b0fd147, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47b7daaddb5f36c408f959402c0984eb, type: 3}

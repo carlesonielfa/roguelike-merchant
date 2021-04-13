@@ -14,7 +14,7 @@ public class PlayerComponent : MonoBehaviour
     // Update is called once per frame
     public void OnNewCity(GameObject city)
     {
-        if(gameState.Value != (int)GameState.MOVEMENT)
+        if (gameState.Value != (int)GameState.MOVEMENT)
         {
             Debug.LogError("Illegal Action: A new city was selected when GameState wasn't movement");
         }
