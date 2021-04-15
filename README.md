@@ -1,4 +1,5 @@
 # Roguelike merchant game
+Name: Luck of the Isles
 
 ## Overview
 ### Project scope
