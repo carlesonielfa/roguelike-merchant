@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 public class MapGeneration : MonoBehaviour
 {
-
+    [SerializeField] int nCities = 16;
+    [SerializeField] float minDistanceBetweenCities = 3f;
+    [SerializeField] float borderCitySpawnLimit = 0.2f;
     // Width and height of the texture in pixels.
     [SerializeField] int width = 128;
     [SerializeField] int height = 128;
 
     // The origin of the sampled area in the plane.
-    [SerializeField] float seed;
+    [SerializeField] int seed;
 
     // The number of cycles of the basic noise pattern that are repeated
     // over the width and height of the texture.
@@ -18,89 +20,131 @@ public class MapGeneration : MonoBehaviour
 
     [SerializeField] Color waterColor;
     [SerializeField] Color earthColor;
-    [SerializeField] float waterLevel = 0.6f;
-    
-    //Cities
-    [SerializeField] float distanceBetweenCities = 3f;
-    [SerializeField] float additionalHeightForCity = 0.1f;
-    [SerializeField] float borderCitySpawnLimit = 0.2f;
+    [SerializeField] float waterLevel = 0.8f;
+    private float isleRadiusSquared = 0.5f;
+
+
+
     private Texture2D texture;
-    private Color[] pixels;
+    private Color[] pixelsColor;
+    private float[] heightMap;
     private Renderer rend;
 
-    private List<Vector2> cities;
-
+    private List<Vector2> cityLocations;
+    private List<CityComponent> cities = new List<CityComponent>();
     [SerializeField] List<GameObject> citiesPrefabs;
+
     void Start()
     {
         if (seed == 0)
+        {
             seed = Random.Range(0,10000);
+            Random.InitState(seed);
+        }
+
         rend = GetComponent<Renderer>();
 
-        cities = new List<Vector2>();
+        cityLocations = new List<Vector2>();
         // Set up the texture and a Color array to hold pixels during processing.
         texture = new Texture2D(width, height);
-        pixels = new Color[texture.width * texture.height];
+        pixelsColor = new Color[texture.width * texture.height];
+        heightMap = new float[texture.width * texture.height];
         rend.material.mainTexture = texture;
 
         DrawMap();
-        InstantiateCities();
     }
-
-    void InstantiateCities()
-    {
-        foreach (Vector2 vector in cities)
-        {
-            Instantiate(citiesPrefabs[0], vector, Quaternion.identity,transform.parent);
-        }
-    }
-
     void DrawMap()
     {
         ComputeMap();
         // Copy the pixel data to the texture and load it into the GPU.
-        texture.SetPixels(pixels);
+        pixelsColor = heightMap.Select(i => SetColor(i)).ToArray();
+        texture.SetPixels(pixelsColor);
         texture.Apply();
+    }
+    void InstantiateCities()
+    {
+        foreach (Vector2 vector in cityLocations)
+        {
+            cities.Add(Instantiate(citiesPrefabs[0], vector, Quaternion.identity, transform.parent).GetComponent<CityComponent>());
+        }
     }
     void ComputeMap()
     {
+        PlaceCities();
+        InstantiateCities();
+        GeneratePaths();
+        
         for(float y = 0f; y < texture.height; y++)
         {
             for (float x = 0f;  x < texture.width; x++)
             {
                 float xNorm = x / texture.width * scale;
                 float yNorm = y / texture.height * scale;
-                float h = Mathf.PerlinNoise(seed + xNorm, seed+ yNorm);
-                TryToAddCity(x, y, h);
-                pixels[(int)y * texture.width + (int)x] = SetColor(h);
+                float h = 0;
+                foreach(CityComponent city in cities)
+                {
+                    //TODO no need to check all cities this could be more efficient
+                    float distance = MinDistanceToCity(RelativeCoordsToWorld(new Vector2(xNorm, yNorm) / scale));
+                    if (distance < isleRadiusSquared){
+                        h += (isleRadiusSquared-distance)/isleRadiusSquared * Mathf.PerlinNoise(seed + xNorm, seed + yNorm);
+                    }
+                }
+                heightMap[(int)y * texture.width + (int)x] = h;
             }
         }
 
 
     }
 
-    void TryToAddCity(float x, float y, float h)
+    private void GeneratePaths()
     {
-        Vector2 pos = new Vector2(x/texture.width,y/texture.height);
-        if (pos.x < borderCitySpawnLimit || pos.x > 1 - borderCitySpawnLimit
-           || pos.y < borderCitySpawnLimit || pos.y > 1 - borderCitySpawnLimit)
+        foreach (CityComponent city in cities)
         {
-            return;
-        }
-        pos = RelativeCoordsToWorld(pos);
-        //TODO: Add configurable params
-        if (h > waterLevel + additionalHeightForCity && (cities.Count == 0 || MinDistanceToCity(pos) > distanceBetweenCities))
-        {
-            cities.Add(pos);
-        }
+            if (city.connectedCities.Count < 2)
+            {
+                IEnumerable orderedCities =  cities.Except(city.connectedCities).
+                    OrderBy(otherCity => (city.GetPosition() - otherCity.GetPosition()).sqrMagnitude).
+                    Skip(1).
+                    Take(2 - city.connectedCities.Count);
 
+                foreach (CityComponent otherCity in orderedCities)
+                {
+                    city.connectedCities.Add(otherCity);
+                    otherCity.connectedCities.Add(city);
+                }
+            }
+        }
+    }
+
+    private void PlaceCities()
+    {
+        Vector2 pos = Vector2.zero;
+        for (int i = 0; i < nCities; i++)
+        {
+            float minDistance = 0;
+            int retries = 10;
+            while (minDistance < minDistanceBetweenCities)
+            {
+                pos = new Vector2(Random.Range(borderCitySpawnLimit, 1 - borderCitySpawnLimit),
+                Random.Range(borderCitySpawnLimit, 1 - borderCitySpawnLimit));
+                pos = RelativeCoordsToWorld(pos);
+                minDistance = MinDistanceToCity(pos);
+                retries--;
+                if (retries == 0)
+                {
+                    Debug.LogWarning("Couldn't spawn city respecting min distance");
+                    break;
+                }
+            }
+            cityLocations.Add(pos);
+        }
     }
     float MinDistanceToCity(Vector2 pos)
     {
         float minDistance = float.MaxValue;
-        foreach(Vector2 city in cities)
+        foreach (Vector2 city in cityLocations)
         {
-            float distance = (pos - city).magnitude;
+            float distance = (pos - city).sqrMagnitude;
             if (distance < minDistance)
                 minDistance = distance;
         }
@@ -132,9 +176,13 @@ public class MapGeneration : MonoBehaviour
 
         if (cities != null)
         {
-            foreach (Vector2 vector in cities)
+            foreach (CityComponent city in cities)
             {
-                Gizmos.DrawSphere(vector, 0.15f);
+                Gizmos.DrawSphere(city.GetPosition(), 0.15f);
+                foreach (CityComponent otherCity in city.connectedCities)
+                {
+                    Gizmos.DrawLine(city.GetPosition(), otherCity.GetPosition());
+                }
             }
         }
 

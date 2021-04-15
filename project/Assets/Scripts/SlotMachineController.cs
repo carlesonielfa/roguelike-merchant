@@ -60,10 +60,10 @@ public class SlotMachineController : MonoBehaviour
             {
                 Destroy(rowContents[i][j]);
             }
-        City city = cityObject.GetComponent<CityComponent>().city;
+        CityComponent city = cityObject.GetComponent<CityComponent>();
 
 
-        inventory = new List<string>(city.CityGoods);
+        inventory = new List<string>(city.cityGoods);
         UpdateRowContents();
     }
     public void ShowSlotMachine()
