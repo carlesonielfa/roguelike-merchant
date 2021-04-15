@@ -14,6 +14,9 @@ public class PlayerComponent : MonoBehaviour
     // Update is called once per frame
     public void OnNewCity(GameObject city)
     {
+        GameData.Instance.AddPlayerGood("gem", 1);
+        GameData.Instance.AddPlayerGood("strawberry", 1);
+        
         if (gameState.Value != (int)GameState.MOVEMENT)
         {
             Debug.LogError("Illegal Action: A new city was selected when GameState wasn't movement");
@@ -26,5 +29,6 @@ public class PlayerComponent : MonoBehaviour
         LeanTween.move(gameObject, q, 1f).
             setEase(LeanTweenType.easeInOutQuad).
             setOnComplete(()=> gameState.Value = (int)GameState.SELL);
+
     }
 }

@@ -6,12 +6,14 @@ using TMPro;
 
 public class GoodPanelController : MonoBehaviour
 {
-    TextMeshProUGUI textComponent;
-    SVGImage image;
+    [SerializeField] TextMeshProUGUI textComponent;
+    [SerializeField] SVGImage image;
     public void OnEnable()
     {
-        textComponent = GetComponentInChildren<TextMeshProUGUI>();
-        image = GetComponent<SVGImage>();
+        if(textComponent==null)
+            textComponent = GetComponentInChildren<TextMeshProUGUI>();
+        if(image==null)
+            image = GetComponent<SVGImage>();
     }
     public void UpdateIcon(GameObject goodGameObject)
     {
@@ -21,6 +23,10 @@ public class GoodPanelController : MonoBehaviour
     }
     public void UpdateAmount(int amount)
     {
+        if (amount == 0)
+        {
+            LeanTween.scale(gameObject, Vector3.zero, 0.25f).destroyOnComplete = true;
+        }
         textComponent.text = "x"+amount;
     }
 }

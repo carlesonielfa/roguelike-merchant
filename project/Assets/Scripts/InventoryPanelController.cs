@@ -6,20 +6,35 @@ public class InventoryPanelController : MonoBehaviour
 {
     Dictionary<string, GoodPanelController> goodPanels;
     [SerializeField] GameObject goodPanelPrefab;
+    [SerializeField] Transform panelsContainer;
     // Start is called before the first frame update
     void Start()
     {
         goodPanels = new Dictionary<string, GoodPanelController>();
         GameData.Instance.OnInventoryChanged += UpdatePanels;
+        if (panelsContainer == null)
+            panelsContainer = transform;
     }
-    void UpdatePanels(System.Tuple<string,int> updatedValue)
+    void UpdatePanels(System.Tuple<string, int> updatedValue)
     {
+        GoodPanelController g;
         if (!goodPanels.ContainsKey(updatedValue.Item1))
         {
-            GameObject instance = Instantiate(goodPanelPrefab, transform);
-            goodPanels.Add(updatedValue.Item1, instance.GetComponent<GoodPanelController>());
-            goodPanels[updatedValue.Item1].UpdateIcon(GameData.Instance.GetGoodGameObject(updatedValue.Item1));
+            g = Instantiate(goodPanelPrefab, panelsContainer).GetComponent<GoodPanelController>();
+            goodPanels.Add(updatedValue.Item1, g);
+            g.UpdateIcon(GameData.Instance.GetGoodGameObject(updatedValue.Item1));
         }
-        goodPanels[updatedValue.Item1].UpdateAmount(updatedValue.Item2);
+        else
+        {
+            g = goodPanels[updatedValue.Item1];
+        }
+
+        g.UpdateAmount(updatedValue.Item2);
+
+        if (updatedValue.Item2 == 0)
+        {
+            goodPanels.Remove(updatedValue.Item1);
+        }
+        
     }
 }

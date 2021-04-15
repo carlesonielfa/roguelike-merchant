@@ -249,6 +249,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7510347220932109136}
+  - component: {fileID: 2016769552051833930}
   m_Layer: 5
   m_Name: SellGoodPanel
   m_TagString: Untagged
@@ -278,8 +279,22 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_SizeDelta: {x: 527, y: 50}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &2016769552051833930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3551656375936361055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214d78aed2558a04581298692d6de706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 8806784106035410201}
+  image: {fileID: 6721850093251799574}
 --- !u!1 &5851913908932788118
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +628,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Apple x4
+  m_text: x4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6bf998c874a47434ca2ac7daa107de01, type: 2}
   m_sharedMaterial: {fileID: -3875282034738699335, guid: 6bf998c874a47434ca2ac7daa107de01, type: 2}
@@ -918,3 +933,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: -6288611839654020156, guid: fbe0c1a8f274d504e93b389c8819d821, type: 3}
   m_PrefabInstance: {fileID: 489225821073453494}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6721850093251799574 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6594073876940659616, guid: fbe0c1a8f274d504e93b389c8819d821, type: 3}
+  m_PrefabInstance: {fileID: 489225821073453494}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef8b96895a0ec4ba685178a052544251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

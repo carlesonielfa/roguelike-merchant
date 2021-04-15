@@ -44,19 +44,24 @@ public class GameData
     }
     public void RemovePlayerGood(string goodName, int amount)
     {
+        int goodQuantity = 0;
         if (playerInventory.ContainsKey(goodName))
         {
             playerInventory[goodName] -= amount;
-            if (playerInventory[goodName] < 0)
+            goodQuantity = playerInventory[goodName];
+            if (goodQuantity < 0)
                 Debug.LogWarning("Player good amount went negative!");
-            if (playerInventory[goodName] <= 0)
+            if (goodQuantity <= 0)
+            {
                 playerInventory.Remove(goodName);
+                goodQuantity = 0;
+            }
         }
         else
         {
             Debug.LogError("Tried to remove a good the player doesn't have!");
         }
-        OnInventoryChanged?.Invoke(new System.Tuple<string, int>(goodName, playerInventory[goodName]));
+        OnInventoryChanged?.Invoke(new System.Tuple<string, int>(goodName, goodQuantity));
     }
     
     private static void LoadDataFromJSON()
