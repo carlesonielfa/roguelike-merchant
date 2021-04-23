@@ -1,7 +1,11 @@
 {
 "goods":
 	[
-
+		{
+			"name":"empty",
+			"icon":"-",
+			"rarity": 1
+		},
 		{
 		  "name": "salt",
 		  "icon": "🧂",

@@ -19,8 +19,18 @@ public class CityComponent : MonoBehaviour
     {
         if(gameState.Value == (int)GameState.MOVEMENT)
         {
-            currentCity.Value = gameObject;
-            Debug.Log("Clicked city : "+transform.position);
+            if(currentCity.Value == gameObject)
+            {
+                currentCity.GetEvent<GameObjectEvent>().Raise(gameObject);
+                Debug.Log("Repeated City : " + transform.position);
+            }
+            else
+            {
+                currentCity.Value = gameObject;
+                Debug.Log("New City : " + transform.position);
+            }
+            
+            
         }        
     }
     
@@ -28,8 +38,9 @@ public class CityComponent : MonoBehaviour
     public void Restock()
     {
         //TODO change to not truly random
-        foreach (string good in GameData.Instance.RandomGoods().Take(MAX_GOODS - cityGoods.Count))
+        foreach (string good in GameData.Instance.RandomGoods().Take((MAX_GOODS - cityGoods.Count)/2))
         {
+            cityGoods.Add(good);
             cityGoods.Add(good);
         }
     }

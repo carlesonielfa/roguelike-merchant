@@ -29,12 +29,12 @@
      inkscape:cx="436.07238"
      inkscape:cy="339.63614"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer3"
+     inkscape:current-layer="layer2"
      showgrid="false"
-     inkscape:window-width="1278"
-     inkscape:window-height="1008"
-     inkscape:window-x="-7"
-     inkscape:window-y="0"
+     inkscape:window-width="2560"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:pagecheckerboard="true"
      showguides="false" />
@@ -46,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -55,7 +55,7 @@
      id="layer2"
      inkscape:label="Capa 2">
     <rect
-       style="fill:#e9c6af;fill-opacity:1;stroke:none;stroke-width:2.8747623;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#de8787;fill-opacity:1;stroke:none;stroke-width:2.8747623;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect823"
        width="38.481594"
        height="51.27256"
@@ -69,7 +69,7 @@
      id="layer1"
      transform="translate(-4.9144683,-31.972244)">
     <rect
-       style="fill:#deaa87;fill-opacity:1;stroke:#e9c6af;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#d35f5f;fill-opacity:1;stroke:#de8787;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect815"
        width="200"
        height="150"
@@ -77,7 +77,7 @@
        y="52.181114"
        rx="10" />
     <rect
-       style="fill:#deaa87;fill-opacity:1;stroke:#e9c6af;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#d35f5f;fill-opacity:1;stroke:#de8787;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect819"
        width="124.01306"
        height="37.417732"

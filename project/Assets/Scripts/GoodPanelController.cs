@@ -27,6 +27,6 @@ public class GoodPanelController : MonoBehaviour
         {
             LeanTween.scale(gameObject, Vector3.zero, 0.25f).destroyOnComplete = true;
         }
-        textComponent.text = "x"+amount;
+        textComponent.text = amount.ToString();
     }
 }
