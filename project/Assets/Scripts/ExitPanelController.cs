@@ -23,7 +23,6 @@ public class ExitPanelController : MonoBehaviour
         }
         else if(state.Value == (int)GameState.SPIN)
         {
-            // TODO: Change to add turn and check if day is over
             state.Value = (int)GameState.MOVEMENT;
         }
     }

@@ -18,7 +18,7 @@ public class SlotMachineController : MonoBehaviour
     CityComponent currentCity;
     [SerializeField] Vector2 showPos;
     [SerializeField] Vector2 hidePos;
-
+    [SerializeField] IntVariable gameState;
     /*
      * Slot machine algorithm description
      * 
@@ -178,6 +178,7 @@ public class SlotMachineController : MonoBehaviour
             if (!currentCity.cityGoods.Remove(good.name))
                 Debug.LogError("Awarded item to player that was not in city inventory");
         }
+        LeanTween.delayedCall(2f, () => gameState.Value = (int)GameState.MOVEMENT);
 
 
     }

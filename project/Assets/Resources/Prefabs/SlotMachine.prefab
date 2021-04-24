@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 9042199767686327313}
   - component: {fileID: 6672904301208748961}
   - component: {fileID: 6231191388360325700}
+  - component: {fileID: 1541393545}
   m_Layer: 0
   m_Name: SlotMachine
   m_TagString: Untagged
@@ -218,6 +219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02eacb366e840e741b4494c6f1c79960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showPos: {x: 140, y: 0}
+  hidePos: {x: 140, y: 700}
+  gameState: {fileID: 11400000, guid: 58e43960b70af4249ba7efdaeb6f9aa5, type: 2}
 --- !u!114 &6231191388360325700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +260,44 @@ MonoBehaviour:
     _eventInstancer: {fileID: 0}
     _variable: {fileID: 0}
     _variableInstancer: {fileID: 0}
+--- !u!114 &1541393545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6498671164312648634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f7c26c7102e4f019614c76e6656dd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _developerDescription: 
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6672904301208748961}
+        m_TargetAssemblyTypeName: SlotMachineController, Assembly-CSharp
+        m_MethodName: OnStatChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 1
+  _eventReference:
+    _usage: 0
+    _event: {fileID: 11400000, guid: 87bec6b5b0f92734f81f03acb377fe2e, type: 2}
+    _eventInstancer: {fileID: 0}
+    _variable: {fileID: 0}
+    _variableInstancer: {fileID: 0}
 --- !u!1 &7089037083424396651
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8584767407495562581}
   - component: {fileID: 8527711330611780794}
+  - component: {fileID: 201678868}
   m_Layer: 0
   m_Name: Dividers
   m_TagString: Untagged
@@ -294,8 +337,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -28.880005, y: -34}
-  m_SizeDelta: {x: -117.84, y: -68}
+  m_AnchoredPosition: {x: -26.399994, y: -33.505028}
+  m_SizeDelta: {x: -122.8, y: -358.80997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8527711330611780794
 MonoBehaviour:
@@ -323,6 +366,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &201678868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7089037083424396651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding: {x: 0, y: 0, z: 0, w: 0}
+  m_Softness: {x: 0, y: 0}
 --- !u!1001 &317509514414006080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -380,7 +437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8123522327309496364, guid: e8b00c4fa84fc2a4eabd65cdcfef3c5a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 266
+      value: -34
       objectReference: {fileID: 0}
     - target: {fileID: 8123522327309496364, guid: e8b00c4fa84fc2a4eabd65cdcfef3c5a, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -392,11 +449,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8123522327309496364, guid: e8b00c4fa84fc2a4eabd65cdcfef3c5a, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 262.26047
+      value: 262.2605
       objectReference: {fileID: 0}
     - target: {fileID: 8123522327309496364, guid: e8b00c4fa84fc2a4eabd65cdcfef3c5a, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8123522327309496364, guid: e8b00c4fa84fc2a4eabd65cdcfef3c5a, type: 3}
       propertyPath: m_AnchorMin.y
@@ -404,7 +461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8123522327309496364, guid: e8b00c4fa84fc2a4eabd65cdcfef3c5a, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8123522327309496364, guid: e8b00c4fa84fc2a4eabd65cdcfef3c5a, type: 3}
       propertyPath: m_AnchorMax.y
