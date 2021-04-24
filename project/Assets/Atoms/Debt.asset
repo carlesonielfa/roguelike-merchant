@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf8a67b68db3d4650908f8cf6adeda60, type: 3}
-  m_Name: TotalTurns
+  m_Name: Debt
   m_EditorClassIdentifier: 
   _developerDescription: 
   _id: 
-  _value: 4
-  _changed: {fileID: 11400000, guid: 51cdc18eb064d9b408376ddb72b463ed, type: 2}
+  _value: 0
+  _changed: {fileID: 11400000, guid: c0fcd55c92ab38c43aa4deda7029ce13, type: 2}
   _changedWithHistory: {fileID: 0}
   _triggerChangedOnOnEnable: 0
   _triggerChangedWithHistoryOnOnEnable: 0
-  _oldValue: 4
-  _initialValue: 4
+  _oldValue: 0
+  _initialValue: 0
   _preChangeTransformers: []

@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b04cec5b7c2484d6e92005ad7f762c6f, type: 3}
-  m_Name: RemainingTurnsChanged
+  m_Script: {fileID: 11500000, guid: 9fce12a4beec24778830e555cb6e5ca3, type: 3}
+  m_Name: DebtChanged
   m_EditorClassIdentifier: 
   _developerDescription: 
   _replayBufferSize: 1
-  _inspectorRaiseValue:
-    _item1: 0
-    _item2: 0
+  _inspectorRaiseValue: 0
