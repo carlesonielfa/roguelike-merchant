@@ -10,6 +10,7 @@ public class GameData
     static string goodsJSONPath = Application.dataPath + "/Data/data.json";
     static string goodsIconsPath = "Icons/Goods/";
     public Good[] goods;
+    public string cities;
     private Dictionary<string, System.Tuple<Good, GameObject>> goodsDict;
 
     private Dictionary<string, int> playerInventory;
@@ -93,7 +94,7 @@ public class GameData
         }
         
     }
-    public GameObject GetGoodGameObject(string name)
+    public GameObject GetGoodGameObjectInstance(string name)
     {
         //Must set parent after
         var t = goodsDict[name];
@@ -102,6 +103,10 @@ public class GameData
         gameObjectInstance.AddComponent<GoodComponent>();
         gameObjectInstance.GetComponent<GoodComponent>().good = t.Item1;
         return gameObjectInstance;
+    }
+    public GameObject GetGoodGameObjectPrefab(string name)
+    {
+        return goodsDict[name].Item2;
     }
     public IEnumerable<string> RandomGoods()
     {

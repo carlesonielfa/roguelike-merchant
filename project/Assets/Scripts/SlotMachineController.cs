@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityAtoms.BaseAtoms;
 using System.Linq;
+using UnityEngine.UI;
 public class SlotMachineController : MonoBehaviour
 {
     const int nCols = 5;
@@ -19,6 +20,8 @@ public class SlotMachineController : MonoBehaviour
     [SerializeField] Vector2 showPos;
     [SerializeField] Vector2 hidePos;
     [SerializeField] IntVariable gameState;
+    [SerializeField] Transform dividers;
+    [SerializeField] Button spinButton;
     /*
      * Slot machine algorithm description
      * 
@@ -38,12 +41,12 @@ public class SlotMachineController : MonoBehaviour
         colContents = new List<GameObject>[nCols];
 
         colContainers = new Transform[nCols];
-        if (gameObject.transform.GetChild(0).childCount != nCols)
+        if (dividers.childCount != nCols)
             Debug.LogError("Slot machine number of rows gameobjects and nRows mismatch, fix in editor");
 
         for (int i = 0; i < nCols; i++)
         {
-            colContainers[i] = transform.GetChild(0).GetChild(i);
+            colContainers[i] = dividers.GetChild(i);
         }
 
 
@@ -53,12 +56,12 @@ public class SlotMachineController : MonoBehaviour
         //If we are entering spin state show machine
         if (state.Item1 == (int)GameState.SPIN)
         {
-            LeanTween.moveLocal(gameObject, showPos, 2f).setDelay(2f).setEaseOutElastic().setOnComplete(() => Spin());
+            LeanTween.moveLocal(gameObject, showPos, 1f).setDelay(2f).setEaseOutBack();
         }
         //If we are leaving spin state hide machine
         if (state.Item2 == (int)GameState.SPIN)
         {
-            LeanTween.moveLocal(gameObject, hidePos, 2f).setEaseInElastic();
+            LeanTween.moveLocal(gameObject, hidePos, 1f).setEaseInBack();
         }
     }
     public void OnCityChanged(GameObject cityObject)
@@ -102,7 +105,7 @@ public class SlotMachineController : MonoBehaviour
         {
             for (int j = 0; j < inventory.Count / nCols; j++)
             {
-                GameObject instance = GameData.Instance.GetGoodGameObject(inventory[i * (inventory.Count / nCols) + j]);
+                GameObject instance = GameData.Instance.GetGoodGameObjectInstance(inventory[i * (inventory.Count / nCols) + j]);
                 colContents[i].Add(instance);
 
                 rectTransform = colContents[i][j].GetComponent<RectTransform>();
@@ -121,10 +124,11 @@ public class SlotMachineController : MonoBehaviour
         lastSlotY = -0.5f * slotHeight - 0.5f * slotWidth;
 
         Debug.Log("Slot machine updated");
+        spinButton.interactable = true;
     }
-    void Spin()
+    public void Spin()
     {
-
+        spinButton.interactable = false;
         /*
         float rowDelay = 0.25f;
         for(int i=0; i<nRows; i++)

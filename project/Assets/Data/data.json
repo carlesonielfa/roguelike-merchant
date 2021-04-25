@@ -4,227 +4,260 @@
 		{
 			"name":"empty",
 			"icon":"-",
-			"rarity": 1
+			"probability": 0
 		},
 		{
 		  "name": "salt",
 		  "icon": "🧂",
-		  "rarity": 0.1
+		  "probability": 0.9,
+		  "spawns_in": ["all"]
 		},
 		{
 		  "name": "egg",
 		  "icon": "🥚",
-		  "rarity": 0.12
+		  "probability": 0.88,
+		  "spawns_in": ["house","hut","castle"]
 		},
 		{
 		  "name": "bread",
 		  "icon": "🍞",
-		  "rarity": 0.1
+		  "probability": 0.1,
+		  "spawns_in": ["house","hut","castle", "tent", "temple"]
 		},
 		{
 		  "name": "cheese",
 		  "icon": "🧀",
-		  "rarity": 0.23
+		  "probability": 0.77,
+		  "spawns_in": ["house","hut","castle", "tent"]
 		},
 		{
 		  "name": "oyster",
 		  "icon": "🦪",
-		  "rarity": 0.5
+		  "probability": 0.5,
+		  "spawns_in": ["castle", "oriental_castle", "temple"]
 		},
 		{
 		  "name": "meat",
 		  "icon": "🍖",
-		  "rarity": 0.3
+		  "probability": 0.7,
+		  "spawns_in": ["castle", "oriental_castle","house", "tent", "hut"]
 		},
 		{
 		  "name": "shrimp",
 		  "icon": "🍤",
-		  "rarity": 0.4
+		  "probability": 0.6,
+		  "spawns_in": ["castle", "oriental_castle", "temple"]
 		},
 		{
 		  "name": "cookie",
 		  "icon": "🍪",
-		  "rarity": 0.65
+		  "probability": 0.35,
+		  "spawns_in": ["house", "tent"]
+		  
 		},
 		{
 		  "name": "chocolate",
 		  "icon": "🍫",
-		  "rarity": 0.45
+		  "probability": 0.55,
+		  "spawns_in": ["house", "temple", "tent"]
 		},
 		{
 		  "name": "milk",
 		  "icon": "🥛",
-		  "rarity": 0.2
+		  "probability": 0.8,
+		  "spawns_in": ["castle", "oriental_castle","house", "hut", "house_abandoned"]
 		},
 		{
 		  "name": "tea",
 		  "icon": "🍵",
-		  "rarity": 0.3
+		  "probability": 0.7,
+		  "spawns_in": ["castle", "oriental_castle", "temple"]
 		},
 		{
 		  "name": "wine",
 		  "icon": "🍷",
-		  "rarity": 0.17
+		  "probability": 0.83,
+		  "spawns_in": ["castle", "oriental_castle", "temple", "house"]
 		},
 		{
 		  "name": "beer",
 		  "icon": "🍺",
-		  "rarity": 0.15
+		  "probability": 0.85,
+		  "spawns_in": ["castle", "oriental_castle", "temple", "house","hut"]
 		},
 		{
 		  "name": "kiwi",
 		  "icon": "🥝",
-		  "rarity": 0.23
+		  "probability": 0.77,
+		  "spawns_in": ["oriental_castle", "house"]
 		},
 		{
 		  "name": "grapes",
 		  "icon": "🍇",
-		  "rarity": 0.17
+		  "probability": 0.83,
+		  "spawns_in": ["castle", "house", "hut", "tent"]
 		},
 		{
 		  "name": "coconut",
 		  "icon": "🥥",
-		  "rarity": 0.18
+		  "probability": 0.82,
+		  "spawns_in": ["tent"]
 		},
 		{
 		  "name": "watermelon",
 		  "icon": "🍉",
-		  "rarity": 0.16
+		  "probability": 0.84,
+		  "spawns_in": ["castle", "oriental_castle", "house"]
 		},
 		{
 		  "name": "orange",
 		  "icon": "🍊",
-		  "rarity": 0.2
+		  "probability": 0.8,
+		  "spawns_in": ["oriental_castle", "house", "house_abandoned", "tent", "temple"]
 		},
 		{
 		  "name": "banana",
 		  "icon": "🍌",
-		  "rarity": 0.24
+		  "probability": 0.76,
+		  "spawns_in": ["house", "tent", "hut"]
 		},
 		{
 		  "name": "strawberry",
 		  "icon": "🍓",
-		  "rarity": 0.15
+		  "probability": 0.85,
+		  "spawns_in": ["house", "tent", "hut", "temple"]
 		},
 		{
 		  "name": "lemon",
 		  "icon": "🍋",
-		  "rarity": 0.2
+		  "probability": 0.8,
+		  "spawns_in": ["oriental_castle", "house", "house_abandoned", "tent", "temple"]
 		},
 		{
 		  "name": "pineapple",
 		  "icon": "🍍",
-		  "rarity": 0.3
+		  "probability": 0.7,
+		  "spawns_in": ["hut"]
 		},
 		{
 		  "name": "apple",
 		  "icon": "🍎",
-		  "rarity": 0.1
+		  "probability": 0.9,
+		  "spawns_in": ["oriental_castle", "house", "house_abandoned", "tent", "temple"]
 		},
 		{
 		  "name": "cherry",
 		  "icon": "🍒",
-		  "rarity": 0.25
+		  "probability": 0.75,
+		  "spawns_in": ["oriental_castle", "house", "house_abandoned", "tent", "temple"]
 		},
 		{
 		  "name": "eggplant",
 		  "icon": "🍆",
-		  "rarity": 0.4
+		  "probability": 0.6,
+		  "spawns_in": ["house", "house_abandoned", "tent"]
 		},
 		{
 		  "name": "mushroom",
 		  "icon": "🍄",
-		  "rarity": 0.6
+		  "probability": 0.4,
+		  "spawns_in": ["house_abandoned", "tent", "temple", "hut"]
 		},
 		{
 		  "name": "cucumber",
 		  "icon": "🥒",
-		  "rarity": 0.23
+		  "probability": 0.77,
+		  "spawns_in": ["house", "castle", "temple"]
 		},
 		{
 		  "name": "onion",
 		  "icon": "🧅",
-		  "rarity": 0.1
+		  "probability": 0.9,
+		  "spawns_in": ["oriental_castle", "hut"]
 		},
 		{
 		  "name": "pear",
 		  "icon": "🍐",
-		  "rarity": 0.2
+		  "probability": 0.8,
+		  "spawns_in": ["temple", "house"]
 		},
 		{
 		  "name": "rose",
 		  "icon": "🌹",
-		  "rarity": 0.6
+		  "probability": 0.4,
+		  "spawns_in": ["temple", "castle"]
 		},
 		{
 		  "name": "fish",
 		  "icon": "🐟",
-		  "rarity": 0.15
+		  "probability": 0.85
 		},
 		{
 		  "name": "clownfish",
 		  "icon": "🐠",
-		  "rarity": 0.5
+		  "probability": 0.5
 		},
 		{
 		  "name": "cow",
 		  "icon": "🐮",
-		  "rarity": 0.23
+		  "probability": 0.77
 		},
 		{
 		  "name": "pig",
 		  "icon": "🐷",
-		  "rarity": 0.2
+		  "probability": 0.8
 		},
 		{
 		  "name": "rat",
 		  "icon": "🐭",
-		  "rarity": 0.15
+		  "probability": 0.85
 		},
 		{
 		  "name": "rabbit",
 		  "icon": "🐰",
-		  "rarity": 0.2
+		  "probability": 0.8
 		},
 		{
 		  "name": "frog",
 		  "icon": "🐸",
-		  "rarity": 0.25
+		  "probability": 0.75
 		},
 		{
 		  "name": "horse",
 		  "icon": "🐴",
-		  "rarity": 0.5
+		  "probability": 0.5
 		},
 		{
 		  "name": "dragon",
 		  "icon": "🐲",
-		  "rarity": 0.95
+		  "probability": 0.05
 		},
 		{
 		  "name": "octopus",
 		  "icon": "🐙",
-		  "rarity": 0.7
+		  "probability": 0.3
 		},
 		{
 		  "name": "crab",
 		  "icon": "🦀",
-		  "rarity": 0.6
+		  "probability": 0.4
 		},
 		{
 		  "name": "chicken",
 		  "icon": "🐓",
-		  "rarity": 0.4
+		  "probability": 0.6
 		},
 		{
 		  "name": "paper",
 		  "icon": "📜",
-		  "rarity": 0.3
+		  "probability": 0.7
 		},
 		{
 		  "name": "gem",
 		  "icon": "💎",
-		  "rarity": 0.9
+		  "probability": 0.1
 		}
-	]
+	],
+	"cities":["house", "tent", "temple", "castle", "house_abandoned", "hut", "oriental_castle"]
+	
 }

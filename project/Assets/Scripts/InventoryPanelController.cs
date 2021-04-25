@@ -22,7 +22,7 @@ public class InventoryPanelController : MonoBehaviour
         {
             g = Instantiate(goodPanelPrefab, panelsContainer).GetComponent<GoodPanelController>();
             goodPanels.Add(updatedValue.Item1, g);
-            g.UpdateIcon(GameData.Instance.GetGoodGameObject(updatedValue.Item1));
+            g.UpdateIcon(GameData.Instance.GetGoodGameObjectPrefab(updatedValue.Item1));
         }
         else
         {
