@@ -32,7 +32,6 @@ public class MapGeneration : MonoBehaviour
 
     private List<Vector2> cityLocations;
     private List<CityComponent> cities = new List<CityComponent>();
-    [SerializeField] List<GameObject> citiesPrefabs;
 
     void Start()
     {
@@ -65,7 +64,12 @@ public class MapGeneration : MonoBehaviour
     {
         foreach (Vector2 vector in cityLocations)
         {
-            cities.Add(Instantiate(citiesPrefabs[0], vector, Quaternion.identity, transform.parent).GetComponent<CityComponent>());
+            GameObject g = GameData.Instance.GetRandomCity();
+            Debug.Log(g.GetComponent<CityComponent>().cityType.name);
+            g.transform.SetParent(transform.parent);
+            g.transform.position = vector;
+            g.GetComponent<RectTransform>().sizeDelta = new Vector2(0.75f, 0.75f);
+            cities.Add(g.GetComponent<CityComponent>());
         }
     }
     void ComputeMap()

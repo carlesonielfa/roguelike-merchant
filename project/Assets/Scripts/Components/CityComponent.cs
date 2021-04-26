@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityAtoms.BaseAtoms;
-using UnityEngine.InputSystem;
 using System.Linq;
 public class CityComponent : MonoBehaviour
 {
     public GameObjectVariable currentCity;
     public IntVariable gameState;
+
     const int MAX_GOODS = 30;
     public readonly List<string> cityGoods = new List<string>(MAX_GOODS);
     public readonly List<CityComponent> connectedCities = new List<CityComponent>();
+
+    public CityType cityType;
+
     public void OnEnable()
     {
         Restock();
@@ -38,7 +41,7 @@ public class CityComponent : MonoBehaviour
     public void Restock()
     {
         //TODO change to not truly random
-        foreach (string good in GameData.Instance.RandomGoods().Take((MAX_GOODS - cityGoods.Count)/2))
+        foreach (string good in GameData.Instance.RandomGoods(cityType.name).Take((MAX_GOODS - cityGoods.Count)/2))
         {
             cityGoods.Add(good);
             cityGoods.Add(good);
