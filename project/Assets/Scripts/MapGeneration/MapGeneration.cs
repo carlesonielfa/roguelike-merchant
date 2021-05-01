@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityAtoms.BaseAtoms;
 public class MapGeneration : MonoBehaviour
 {
     [SerializeField] int nCities = 16;
@@ -32,6 +33,7 @@ public class MapGeneration : MonoBehaviour
 
     private List<Vector2> cityLocations;
     private List<CityComponent> cities = new List<CityComponent>();
+    [SerializeField] GameObjectVariable currentCity;
 
     void Start()
     {
@@ -51,6 +53,8 @@ public class MapGeneration : MonoBehaviour
         rend.material.mainTexture = texture;
 
         DrawMap();
+        //Set active city a random city
+        currentCity.SetValue(cities[Random.Range(0, cities.Count)].gameObject);
     }
     void DrawMap()
     {
@@ -65,12 +69,13 @@ public class MapGeneration : MonoBehaviour
         foreach (Vector2 vector in cityLocations)
         {
             GameObject g = GameData.Instance.GetRandomCity();
-            Debug.Log(g.GetComponent<CityComponent>().cityType.name);
+            Debug.Log(g.GetComponent<CityComponent>().city.name);
             g.transform.SetParent(transform.parent);
             g.transform.position = vector;
             g.GetComponent<RectTransform>().sizeDelta = new Vector2(0.75f, 0.75f);
             cities.Add(g.GetComponent<CityComponent>());
         }
+
     }
     void ComputeMap()
     {

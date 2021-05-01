@@ -41,4 +41,21 @@ public class GameStateController : MonoBehaviour
             gameState.Value = (int)GameState.PAY;
         }
     }
+
+    public void OnCurrentCityChanged(GameObjectPair cityVar)
+    {
+        if (cityVar.Item2 != null)
+        {
+            SetCityReachable(cityVar.Item2.GetComponent<CityComponent>(), false);
+        }
+        SetCityReachable(cityVar.Item1.GetComponent<CityComponent>(), true);
+    }
+    private void SetCityReachable(CityComponent city, bool value)
+    {
+        city.Reachable = value;
+        foreach (CityComponent other in city.connectedCities)
+        {
+            other.Reachable = value;
+        }
+    }
 }

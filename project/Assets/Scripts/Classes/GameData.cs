@@ -8,7 +8,7 @@ using System.Linq;
 [System.Serializable]
 public class GameData
 {
-    static string dataJSONPath = Application.dataPath + "/Data/data.json";
+    static string dataJSONPath = "Data/data";
 
     static string goodsIconsPath = "Icons/Goods/";
     public Good[] goods;
@@ -16,8 +16,8 @@ public class GameData
 
     //TODO: rework this area, we dont need this much memory
     static string citiesIconsPath = "Icons/Cities/";
-    public CityType[] cityTypes;
-    private Dictionary<string, System.Tuple<CityType, GameObject>> citiesDict;
+    public City[] cities;
+    private Dictionary<string, System.Tuple<City, GameObject>> citiesDict;
     private GameObject cityPrefab;
 
     private Dictionary<string, int> playerInventory;
@@ -75,9 +75,10 @@ public class GameData
     
     private static void LoadDataFromJSON()
     {
-        string jsonString = File.ReadAllText(dataJSONPath);
+        TextAsset json = Resources.Load<TextAsset>(dataJSONPath);
+        string jsonString = json.text;
         instance = JsonUtility.FromJson<GameData>(jsonString);
-        if(instance.goods.Length == 0 || instance.cityTypes.Length == 0)
+        if(instance.goods.Length == 0 || instance.cities.Length == 0)
         {
             Debug.LogError("No data was loaded");
             instance = null;
@@ -92,19 +93,19 @@ public class GameData
     }
     private static void LoadCities()
     {
-        instance.citiesDict = new Dictionary<string, System.Tuple<CityType, GameObject>>();
-        foreach (CityType item in instance.cityTypes)
+        instance.citiesDict = new Dictionary<string, System.Tuple<City, GameObject>>();
+        foreach (City item in instance.cities)
         {
             GameObject g = Resources.Load<GameObject>(citiesIconsPath + item.name);
             if (g == null)
                 Debug.LogWarning("City " + item.name + " not found in resources, skipping");
             else
             {
-                System.Tuple<CityType, GameObject> tuple = new System.Tuple<CityType, GameObject>(item, g);
+                System.Tuple<City, GameObject> tuple = new System.Tuple<City, GameObject>(item, g);
                 instance.citiesDict.Add(item.name, tuple);
             }
         }
-        Debug.Log("Loaded " + instance.citiesDict.Count + "/" + instance.cityTypes.Length + " cities");
+        Debug.Log("Loaded " + instance.citiesDict.Count + "/" + instance.cities.Length + " cities");
     }
     private static void LoadGoods()
     {
@@ -144,7 +145,7 @@ public class GameData
         GameObject g = t.Item2;
         GameObject gameObjectInstance = GameObject.Instantiate(cityPrefab);
         gameObjectInstance.GetComponent<SVGImage>().sprite = g.GetComponent<SVGImage>().sprite;
-        gameObjectInstance.GetComponent<CityComponent>().cityType = t.Item1;
+        gameObjectInstance.GetComponent<CityComponent>().city = new City(t.Item1);
         return gameObjectInstance;
     }
     public IEnumerable<string> RandomGoods(string cityType)

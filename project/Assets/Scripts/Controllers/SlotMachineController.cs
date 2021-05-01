@@ -16,7 +16,7 @@ public class SlotMachineController : MonoBehaviour
     float spinSpeed = 50f;
     float firstSlotY;
     float lastSlotY;
-    CityComponent currentCity;
+    City currentCity;
     [SerializeField] Vector2 showPos;
     [SerializeField] Vector2 hidePos;
     [SerializeField] IntVariable gameState;
@@ -36,7 +36,7 @@ public class SlotMachineController : MonoBehaviour
      * 6. Initiate spin animation
      * 7. When spin animation is going to stop, add winning combination so it shows as it ends
      */
-    public void Start()
+    public void Awake()
     {
         colContents = new List<GameObject>[nCols];
 
@@ -66,6 +66,7 @@ public class SlotMachineController : MonoBehaviour
     }
     public void OnCityChanged(GameObject cityObject)
     {
+
         RectTransform rectTransformParent = colContainers[0].GetComponent<RectTransform>();
         slotHeight = rectTransformParent.rect.height;
         slotWidth = rectTransformParent.rect.width;
@@ -79,7 +80,7 @@ public class SlotMachineController : MonoBehaviour
     
             colContents[i] = new List<GameObject>();
         }
-        currentCity = cityObject.GetComponent<CityComponent>();
+        currentCity = cityObject.GetComponent<CityComponent>().city;
 
 
         inventory = new List<string>(currentCity.cityGoods);

@@ -12,7 +12,7 @@ public class PlayerComponent : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void OnNewCity(GameObject city)
+    public void OnNewCity(GameObjectPair city)
     {        
         if (gameState.Value != (int)GameState.MOVEMENT)
         {
@@ -21,11 +21,12 @@ public class PlayerComponent : MonoBehaviour
         gameState.Value = (int)GameState.MOVING;
 
         //Get close to city
-        Vector3 w = city.transform.position - transform.position;
+        Vector3 w = city.Item1.transform.position - transform.position;
         Vector3 q = transform.position + w - 0.9f * (w/w.magnitude);
+
         LeanTween.move(gameObject, q, 1f).
             setEase(LeanTweenType.easeInOutQuad).
-            setOnComplete(()=> gameState.Value = (int)GameState.SELL);
+            setOnComplete(()=> gameState.Value = city.Item2 != null ? (int)GameState.SELL: (int)GameState.MOVEMENT);
 
     }
 }

@@ -1,0 +1,11 @@
+The Plague? : If you have atleast 1 rat in your inventory, everytime you would obtain cheese, get X rat instead
+
+Chicken Coop : For each chicken in your inventory you have a X% chance an egg will spawn at the end of the day
+
+Fertilized Eggs : Each egg in your inventory has a X% chance of hatching and adding a chicken at the end of the day
+
+Show-off : Each gem in your inventory adds X% to the price of your other goods when selling
+
+Tutti frutti : In the slot machine all fruits count as adjacent
+
+Alcoholism : Get double the amount of wine and beer, if you have more than X total wine and beer, everytime you chose a destination on the map, you might arrive at a different location instead

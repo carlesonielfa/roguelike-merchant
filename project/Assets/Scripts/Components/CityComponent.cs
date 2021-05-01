@@ -3,26 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityAtoms.BaseAtoms;
 using System.Linq;
+using UnityEngine.UI;
 public class CityComponent : MonoBehaviour
 {
     public GameObjectVariable currentCity;
     public IntVariable gameState;
 
-    const int MAX_GOODS = 30;
-    public readonly List<string> cityGoods = new List<string>(MAX_GOODS);
+
     public readonly List<CityComponent> connectedCities = new List<CityComponent>();
 
-    public CityType cityType;
+    public City city;
 
-    public void OnEnable()
+    [SerializeField] GameObject arrowGameObject;
+    bool reachable;
+
+    public bool Reachable
     {
-        Restock();
+        get => reachable;
+        set
+        {
+            reachable = value;
+            arrowGameObject.SetActive(value);
+            GetComponent<Button>().interactable = value;
+        }
     }
     public void OnClickCity()
     {
-        if(gameState.Value == (int)GameState.MOVEMENT)
+        if (gameState.Value == (int)GameState.MOVEMENT)
         {
-            if(currentCity.Value == gameObject)
+            if (currentCity.Value == gameObject)
             {
                 currentCity.GetEvent<GameObjectEvent>().Raise(gameObject);
                 Debug.Log("Repeated City : " + transform.position);
@@ -32,21 +41,11 @@ public class CityComponent : MonoBehaviour
                 currentCity.Value = gameObject;
                 Debug.Log("New City : " + transform.position);
             }
-            
-            
-        }        
-    }
-    
 
-    public void Restock()
-    {
-        //TODO change to not truly random
-        foreach (string good in GameData.Instance.RandomGoods(cityType.name).Take((MAX_GOODS - cityGoods.Count)/2))
-        {
-            cityGoods.Add(good);
-            cityGoods.Add(good);
+
         }
     }
+
     public Vector2 GetPosition()
     {
         return new Vector2(transform.position.x, transform.position.y);
