@@ -2951,6 +2951,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1412577096506174956, guid: 4dc6147933b23c9428752bf3be2095cf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412577096506174956, guid: 4dc6147933b23c9428752bf3be2095cf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2221746761883733145, guid: 4dc6147933b23c9428752bf3be2095cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3041,6 +3049,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2418162260249200486, guid: 4dc6147933b23c9428752bf3be2095cf, type: 3}
       propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752605196456701362, guid: 4dc6147933b23c9428752bf3be2095cf, type: 3}
+      propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8972189273555373858, guid: 4dc6147933b23c9428752bf3be2095cf, type: 3}
@@ -3197,6 +3209,10 @@ PrefabInstance:
       propertyPath: currentCity
       value: 
       objectReference: {fileID: 11400000, guid: 82026c39b94b8b545a716431ca395123, type: 2}
+    - target: {fileID: 4832098712695605542, guid: 1fae4d30b31cd9049bec9bbc0383cae4, type: 3}
+      propertyPath: linePrefab
+      value: 
+      objectReference: {fileID: 3782987261076551205, guid: 2b13406a07de71141a279e1ef38425be, type: 3}
     - target: {fileID: 4832098712695605543, guid: 1fae4d30b31cd9049bec9bbc0383cae4, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -3205,6 +3221,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+    - target: {fileID: 4832098712695605543, guid: 1fae4d30b31cd9049bec9bbc0383cae4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fae4d30b31cd9049bec9bbc0383cae4, type: 3}
 --- !u!224 &5253174982612963341 stripped

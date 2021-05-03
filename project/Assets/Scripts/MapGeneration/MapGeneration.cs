@@ -34,7 +34,7 @@ public class MapGeneration : MonoBehaviour
     private List<Vector2> cityLocations;
     private List<CityComponent> cities = new List<CityComponent>();
     [SerializeField] GameObjectVariable currentCity;
-
+    [SerializeField] GameObject linePrefab;
     void Start()
     {
         if (seed == 0)
@@ -120,9 +120,22 @@ public class MapGeneration : MonoBehaviour
                 {
                     city.connectedCities.Add(otherCity);
                     otherCity.connectedCities.Add(city);
+                    AddLine(city.GetPosition(), otherCity.GetPosition());
                 }
             }
         }
+    }
+
+    private void AddLine(Vector2 cityPos1, Vector2 cityPos2)
+    {
+        float margin = 0.85f;
+        Vector2 direction = (cityPos2 - cityPos1).normalized;
+        Vector2 start = cityPos1 +direction * margin;
+        Vector2 end = cityPos2 - direction * margin;
+        GameObject laneInstance = Instantiate(linePrefab, transform);
+        LineRenderer lineRenderer = laneInstance.GetComponent<LineRenderer>();
+        lineRenderer.positionCount = 2;
+        lineRenderer.SetPositions(new Vector3[]{new Vector3(start.x, start.y, 0), new Vector3(end.x, end.y, 0) });
     }
 
     private void PlaceCities()
