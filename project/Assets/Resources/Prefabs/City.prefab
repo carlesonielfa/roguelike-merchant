@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 743522352188337161}
   - component: {fileID: 320159596934860583}
   - component: {fileID: 320159596934860586}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: City
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,6 +170,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7604985414051555674, guid: 48a3507b5dcf2f042a00ceebe580a78a, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4987845117602605173, guid: 48a3507b5dcf2f042a00ceebe580a78a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -252,6 +256,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4987845117602605173, guid: 48a3507b5dcf2f042a00ceebe580a78a, type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437341988349974507, guid: 48a3507b5dcf2f042a00ceebe580a78a, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
