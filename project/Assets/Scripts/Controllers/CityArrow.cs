@@ -8,7 +8,7 @@ public class CityArrow : MonoBehaviour
     private void OnEnable()
     {
         if (tweenId == 0)
-            tweenId = LeanTween.moveLocalY(gameObject, 1f, 0.5f).setEaseOutCubic().setLoopPingPong().id;
+            tweenId = LeanTween.moveLocalY(gameObject, 1.2f, 0.5f).setEaseOutCubic().setLoopPingPong().id;
         else
             LeanTween.resume(tweenId);
             

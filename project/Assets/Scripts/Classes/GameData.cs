@@ -144,8 +144,9 @@ public class GameData
         var t = values[Random.Range(0, values.Length)];
         GameObject g = t.Item2;
         GameObject gameObjectInstance = GameObject.Instantiate(cityPrefab);
-        gameObjectInstance.GetComponent<SVGImage>().sprite = g.GetComponent<SVGImage>().sprite;
-        gameObjectInstance.GetComponent<CityComponent>().city = new City(t.Item1);
+        CityComponent cityComponent = gameObjectInstance.GetComponent<CityComponent>();
+        cityComponent.SetImage(g.GetComponent<SpriteRenderer>().sprite);
+        cityComponent.city = new City(t.Item1);
         return gameObjectInstance;
     }
     public IEnumerable<string> RandomGoods(string cityType)
