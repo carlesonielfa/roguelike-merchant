@@ -37,10 +37,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _FlowSpeed: 0.01
-    - _FlowStrength: 0.35
+    - _FlowStrength: 0.45
     - _FoamDistance: 1.61
-    - _ObjectFoamOffset: 0.01
+    - _ObjectFoamOffset: 0.05
     - _Size: 3
+    - _TimeScale: 0.005
     m_Colors:
     - _DarkFoamColor: {r: 0.19428623, g: 0.56246746, b: 0.6981132, a: 1}
     - _LightFoamColor: {r: 1, g: 1, b: 1, a: 1}
