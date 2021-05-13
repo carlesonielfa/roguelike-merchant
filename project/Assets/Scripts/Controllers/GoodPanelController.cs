@@ -8,6 +8,7 @@ public class GoodPanelController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI textComponent;
     [SerializeField] SVGImage image;
+    public string goodName;
     public void OnEnable()
     {
         if(textComponent==null)
@@ -17,6 +18,7 @@ public class GoodPanelController : MonoBehaviour
     }
     public void UpdateIcon(GameObject goodGameObject)
     {
+        goodName = goodGameObject.name;
         image.sprite = goodGameObject.GetComponent<SVGImage>().sprite;
         transform.localScale = new Vector3();
         LeanTween.scale(gameObject,Vector3.one, 0.25f);

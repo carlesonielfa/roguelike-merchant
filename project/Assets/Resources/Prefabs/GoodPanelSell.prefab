@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 200
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6bf998c874a47434ca2ac7daa107de01, type: 2}
-  m_sharedMaterial: {fileID: -3875282034738699335, guid: 6bf998c874a47434ca2ac7daa107de01, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fc15f8b836f75c242ab1ebd523558f0a, type: 2}
+  m_sharedMaterial: {fileID: 977883382163196922, guid: fc15f8b836f75c242ab1ebd523558f0a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.35
+  m_fontSize: 18
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 9151024412024943258}
   - component: {fileID: 4038795839301718483}
   - component: {fileID: 5787677032636589418}
+  - component: {fileID: 3229076277031459338}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -194,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -253,7 +254,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4038795839301718483}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3229076277031459338}
+        m_TargetAssemblyTypeName: SellButtonController, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3229076277031459338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9155367085266356458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06bf7e2abbd80b647801adbdfaa15c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goodPanel: {fileID: 4251519561018622612}
+  gold: {fileID: 11400000, guid: 5a9093dc4f60e784cafc496122e6b2f7, type: 2}
 --- !u!1001 &7323074373354111336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -263,7 +290,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5010851717642838357, guid: ca9ab2e50be17114db1158a4c9762376, type: 3}
       propertyPath: m_fontSize
-      value: 33.15
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5010851717642838357, guid: ca9ab2e50be17114db1158a4c9762376, type: 3}
       propertyPath: m_fontAsset
@@ -392,3 +419,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7867863107105409263, guid: ca9ab2e50be17114db1158a4c9762376, type: 3}
   m_PrefabInstance: {fileID: 7323074373354111336}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4251519561018622612 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -2404737671073496068, guid: ca9ab2e50be17114db1158a4c9762376, type: 3}
+  m_PrefabInstance: {fileID: 7323074373354111336}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27f562d0c8186ac43bbcb876c6eacd13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

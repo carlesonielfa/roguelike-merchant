@@ -7,6 +7,7 @@ public class InventoryPanelController : MonoBehaviour
     Dictionary<string, GoodPanelController> goodPanels;
     [SerializeField] GameObject goodPanelPrefab;
     [SerializeField] Transform panelsContainer;
+    [SerializeField] GameObject emptyPlaceholder;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,8 @@ public class InventoryPanelController : MonoBehaviour
         {
             goodPanels.Remove(updatedValue.Item1);
         }
-        
+
+        if(emptyPlaceholder!=null)
+            emptyPlaceholder.SetActive(goodPanels.Count == 0);
     }
 }

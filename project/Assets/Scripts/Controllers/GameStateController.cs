@@ -15,7 +15,8 @@ public class GameStateController : MonoBehaviour
     [SerializeField] IntVariable debt;
     [SerializeField] IntVariable totalTurns;
     [SerializeField] IntVariable currentTurn;
-    
+
+    bool firstAction = true;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -26,20 +27,30 @@ public class GameStateController : MonoBehaviour
         gold.Value = initialGold;
         debt.Value = initialDebt;
         totalTurns.Value = initialTurns;
-        currentTurn.Value = 0;
     }
 
     public void OnStatChanged(IntPair state)
     {
-        //If previous state was spin or movement we advance one turn
-        if(state.Item2 == (int)GameState.SPIN || state.Item2 == (int)GameState.MOVEMENT)
+        if (firstAction && state.Item2 == (int)GameState.MOVING)
         {
-            currentTurn.Value += 1;
+            firstAction = false;
+            currentTurn.Value = 0;
+            gameState.Value = 1;
         }
-        if(currentTurn.Value == 0)
+        else if (!firstAction)
         {
-            gameState.Value = (int)GameState.PAY;
+            //If previous state was spin or movement we advance one turn
+            if (state.Item2 == (int)GameState.SPIN || state.Item2 == (int)GameState.MOVEMENT)
+            {
+                currentTurn.Value += 1;
+            }
+            if (currentTurn.Value == 0)
+            {
+                gameState.Value = (int)GameState.PAY;
+            }
         }
+
+
     }
 
     public void OnCurrentCityChanged(GameObjectPair cityVar)

@@ -72,7 +72,12 @@ public class GameData
         }
         OnInventoryChanged?.Invoke(new System.Tuple<string, int>(goodName, goodQuantity));
     }
-    
+    public int GetGoodPrice(string goodName)
+    {
+        // Compute price based on current city
+        Good good = goodsDict[goodName].Item1;
+        return (int)((4*Mathf.Pow((1 - good.probability),2)+0.1) * 100);
+    }
     private static void LoadDataFromJSON()
     {
         TextAsset json = Resources.Load<TextAsset>(dataJSONPath);

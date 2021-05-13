@@ -38,7 +38,7 @@ public class CityComponent : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (gameState.Value == (int)GameState.MOVEMENT)
+        if (reachable && gameState.Value == (int)GameState.MOVEMENT)
         {
             if (currentCity.Value == gameObject)
             {
